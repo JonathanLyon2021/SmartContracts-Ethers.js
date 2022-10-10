@@ -10,3 +10,25 @@ const fs = require("fs-extra");
 function readFile(fileName) {
     return fs.readFileSync(fileName, "utf8"); ///Ask Jason what exactly this means/does?
 }
+
+function compileContract(fileName, contractName) {
+    let contractStr = readFile(fileName);
+    let input = JSON.stringify({
+        language: 'Solidity',
+        sources: {
+            'source_1': {
+                content: contactStr
+            }
+        },
+        settings: {
+            outputSelection: {
+                '*': {
+                    '*': ['*']
+                }
+            }
+        }
+    });
+    let output = JSON.parse(solc.compile(input)).contracts['source_1'];
+    return output[contractName];
+}
+
