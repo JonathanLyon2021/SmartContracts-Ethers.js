@@ -12,7 +12,7 @@ we will use the solc-js library – JavaScript bindings for the Solidity Compile
 To start, create a new project directory in an appropriate place; open a terminal session and initialize a <br>
 package.json file inside the project directory: 
 
-    npm init -y
+    `npm init -y`
     
 After that, install solc-js:
 
@@ -26,4 +26,21 @@ Last but not least, we need to install ethers.js:
 
     npm install ––save ethers@5.5.1
 
-After we have installed our dependencies, create a JavaScript file called ethers-workflow.js and require them:
+After we have installed our dependencies, create a JavaScript file called ethers-workflow.js and require them.
+
+Provider links to a running node in order to connect to the Ethereum blockchain for issuing queries and sending
+state changing transactions. It is simply a connection to the network. For the purposes of this exercise, we will use
+Ropsten as our provider.
+Now, we will create a simple smart contract called ArrayOfFacts.sol which will store an array of strings called facts in
+the blockchain. Only the owner of the contract can add facts but anyone should be able to get a count of how many
+facts there are and retrieve a specific fact by index.
+
+Now that we have written the smart contract, we will create a function in ethers-workflow.js which reads a file and
+returns its content.
+
+Let’s now create a function to compile the smart contract: we will create a function called compileContract which
+takes two parameters: the file name and the contract name. It will return an output of the compiled contract.
+
+Now, let’s create an async, self-invoking function to execute the program’s logic.
+
+Let’s save a reference to the ABI for later use:
