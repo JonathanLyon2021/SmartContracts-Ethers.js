@@ -12,7 +12,7 @@ we will use the solc-js library – JavaScript bindings for the Solidity Compile
 To start, create a new project directory in an appropriate place; open a terminal session and initialize a <br>
 package.json file inside the project directory: 
 
-     npm init -y
+    npm init -y
     
 After that, install solc-js:
 
