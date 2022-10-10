@@ -32,3 +32,9 @@ function compileContract(fileName, contractName) {
     return output[contractName];
 }
 
+(async() => {
+    console.log("\nCOMPILING CONTRACT");
+    const compiledContract = compileContract("./ArrayOfFacts.sol", "ArrayOfFacts");
+    console.log(compiledContract);
+    const abi = compiledContract.abi;
+})();
