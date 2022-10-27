@@ -5,7 +5,7 @@ const provider = ethers.getDefaultProvider("ropsten"); // this is just a connect
 //for querying and sending state changes
 const fs = require("fs-extra");
 
-//Create a function that readds a file and returns its content.
+//Create a function that reads a file and returns its content.
 
 function readFile(fileName) {
     return fs.readFileSync(fileName, "utf8"); ///Ask Jason what exactly this means/does?
@@ -38,3 +38,19 @@ function compileContract(fileName, contractName) {
     console.log(compiledContract);
     const abi = compiledContract.abi;
 })();
+
+const privateKey = ''; //Fill in from MetaMaask
+
+function deployContract(privateKey, fileName, contractName) {
+    let wallet = new ethers.Wallet(privateKey, provider);
+    let contract = compileContract(fileName, contractName);
+    let bytecode = "0x" + contract.evm.bytecode.object;
+    let abi = contract.abi;
+    let factory = new ethers.ContractFactory(abi, bytecode, wallet);
+    return factory.deploy().then((contract) => {
+        console.log("Transacion created: ");
+        console.log(contract.deployTransaction);
+        console.log("Contract address: " + contract.address);
+        return contract;
+    });
+}
