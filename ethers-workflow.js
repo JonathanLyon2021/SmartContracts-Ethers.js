@@ -54,3 +54,15 @@ function deployContract(privateKey, fileName, contractName) {
         return contract;
     });
 }
+
+function addFact(privateKey, abi, contractAdress, facts){
+	let wallet = new ethers.Wallet(privateKey, provider);
+	let contract = new ethers.Contract(contractAdress, abi, wallet);
+
+	return contract.add(fact).then((transaction) => {
+		console.log("Transaction: ");
+		console.log(transaction);
+		return transaction;
+	})
+}
+
