@@ -46,6 +46,11 @@ function compileContract(fileName, contractName) {
 	console.log(contractAddress);
 	*/
 	
+	console.log("\nADDING A FACT");
+	let fact = "The Times 03/Jan/2009 Chancellor on brink of second bailout for the banks!";
+	let tx = await addFact(privateKey, abi, contractAddress, fact);
+	console.log("\nWAITING FOR TRANSACTION TO BE MINED");	
+	await tx.wait();
 })();
 
 const privateKey = ''; //Fill in from MetaMaask
