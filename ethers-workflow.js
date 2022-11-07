@@ -77,7 +77,13 @@ function addFact(privateKey, abi, contractAdress, facts){
 		console.log("Transaction: ");
 		console.log(transaction);
 		return transaction;
-	})
+	});
 }
 
+function getFact(provider, abi, contractAddress, index){
+	let contract = new ethers.Contract(contractAddress, abi, provider);
+	return contract.getFact(index).then((fact) => {
+		console.log("Fact " + ++index + " : " + fact);
+	});
+}
 
