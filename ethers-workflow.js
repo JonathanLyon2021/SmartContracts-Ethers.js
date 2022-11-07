@@ -37,6 +37,15 @@ function compileContract(fileName, contractName) {
     const compiledContract = compileContract("./ArrayOfFacts.sol", "ArrayOfFacts");
     console.log(compiledContract);
     const abi = compiledContract.abi;
+	
+    /*console.log('\nDeploying Contract');
+	let contract = await deployContract(privateKey, "./ArrayOfFacts.sol", "ArrayOfFacts");
+	console.log('\nWAITING FOR CONTRACT TO BE MINED);
+	await contract.deployed();
+	contractAddress = contract.address;
+	console.log(contractAddress);
+	*/
+	
 })();
 
 const privateKey = ''; //Fill in from MetaMaask
@@ -65,4 +74,5 @@ function addFact(privateKey, abi, contractAdress, facts){
 		return transaction;
 	})
 }
+
 
