@@ -56,6 +56,10 @@ function compileContract(fileName, contractName) {
 	/*console.log("\nGETTING FACT 1");
 	await getFact(provider, abi, contractAddress, 0);
 	*/
+	
+	/*console.log("\nGETTING FACTS COUNT");
+	await getFactsCount(provider, abi, contractAddress);
+	*/
 })();
 
 const privateKey = ''; //Fill in from MetaMaask
