@@ -92,3 +92,9 @@ function getFact(provider, abi, contractAddress, index){
 	});
 }
 
+function getFactsCount(provider, abi, contractAddress){
+	let contract = new ethers.Contract(contractAddress, abi, provider);
+	return contract.Count().then((count) => {
+		console.log(ethers.BigNumber.from(count).toNumber());
+	});
+}
