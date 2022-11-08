@@ -8,7 +8,7 @@ const fs = require("fs-extra");
 //Create a function that reads a file and returns its content.
 
 function readFile(fileName) {
-    return fs.readFileSync(fileName, "utf8"); ///Ask Jason what exactly this means/does?
+    return fs.readFileSync(fileName, "utf8"); 
 }
 
 function compileContract(fileName, contractName) {
@@ -71,7 +71,7 @@ function deployContract(privateKey, fileName, contractName) {
     let abi = contract.abi;
     let factory = new ethers.ContractFactory(abi, bytecode, wallet);
     return factory.deploy().then((contract) => {
-        console.log("Transacion created: ");
+        console.log("Transaction created: ");
         console.log(contract.deployTransaction);
         console.log("Contract address: " + contract.address);
         return contract;
